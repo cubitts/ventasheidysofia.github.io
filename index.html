@@ -2,36 +2,42 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <!-- Agregamos viewport-fit=cover para usar toda el área de pantalla y permitir scroll -->
+  <!-- Se incluye viewport-fit=cover para aprovechar toda el área de la pantalla -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Ventas HS</title>
+  <title>Punto de venta HS</title>
   <style>
     html, body {
       margin: 0;
       padding: 0;
-      /* Se usa 100vh como mínimo y se permite scroll vertical */
       min-height: 100vh;
       overflow-y: auto;
     }
     iframe {
       border: none;
       width: 100%;
-      /* La altura se ajusta automáticamente; inicialmente se usa un mínimo para cubrir la pantalla */
-      height: auto;
       min-height: 100vh;
       display: block;
     }
   </style>
 </head>
 <body>
-  <!-- Reemplaza la URL por la de tu Web App -->
+  <!-- Reemplaza la URL a continuación por la URL de tu Web App desplegada -->
   <iframe id="miIframe" src="https://script.google.com/macros/s/AKfycbz_3yg1y_BnqKjym7Dho0AIixLA1FiFH63czhiLU2XkBPdypihcFcmGauw0ajPrkJWjjw/exec" allowfullscreen></iframe>
   <script>
-    // Se escucha el mensaje enviado por el iframe para ajustar su altura
     window.addEventListener('message', function(event) {
-      // Si lo deseas, valida event.origin para mayor seguridad
+      var iframe = document.getElementById('miIframe');
+      // Si lo deseas, valida event.origin para mayor seguridad, por ejemplo:
+      // if (event.origin !== 'https://script.google.com') return;
+      
+      // Verifica que el mensaje provenga del contenido actual del iframe
+      if (event.source !== iframe.contentWindow) {
+        console.log('Mensaje descartado, fuente inesperada:', event.source);
+        return;
+      }
+      
       if (event.data && event.data.type === 'setHeight') {
-        document.getElementById('miIframe').style.height = event.data.height + 'px';
+        console.log('Mensaje recibido con altura:', event.data.height);
+        iframe.style.height = event.data.height + 'px';
       }
     });
   </script>
