@@ -2,31 +2,34 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Punto de venta HS</title>
+  <!-- Agregamos viewport-fit=cover para usar toda el área de pantalla y permitir scroll -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Ventas HS</title>
   <style>
     html, body {
       margin: 0;
       padding: 0;
-      min-height: 100%; /* Permite que el contenido se extienda */
-      /* Se elimina overflow: hidden para que el scroll funcione */
+      /* Se usa 100vh como mínimo y se permite scroll vertical */
+      min-height: 100vh;
+      overflow-y: auto;
     }
     iframe {
       border: none;
       width: 100%;
-      /* Se establece una altura mínima para que inicialmente ocupe la pantalla */
+      /* La altura se ajusta automáticamente; inicialmente se usa un mínimo para cubrir la pantalla */
+      height: auto;
       min-height: 100vh;
       display: block;
     }
   </style>
 </head>
 <body>
-  <!-- Reemplaza la URL a continuación por la URL de tu Web App desplegada -->
+  <!-- Reemplaza la URL por la de tu Web App -->
   <iframe id="miIframe" src="https://script.google.com/macros/s/AKfycbz_3yg1y_BnqKjym7Dho0AIixLA1FiFH63czhiLU2XkBPdypihcFcmGauw0ajPrkJWjjw/exec" allowfullscreen></iframe>
   <script>
     // Se escucha el mensaje enviado por el iframe para ajustar su altura
     window.addEventListener('message', function(event) {
-      // Puedes validar event.origin si lo deseas
+      // Si lo deseas, valida event.origin para mayor seguridad
       if (event.data && event.data.type === 'setHeight') {
         document.getElementById('miIframe').style.height = event.data.height + 'px';
       }
