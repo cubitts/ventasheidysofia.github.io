@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Punto de venta HS</title>
   <style>
     html, body {
@@ -21,6 +21,14 @@
 </head>
 <body>
   <!-- Reemplaza la URL a continuación por la URL de tu Web App desplegada -->
-  <iframe src="https://script.google.com/macros/s/AKfycbz_3yg1y_BnqKjym7Dho0AIixLA1FiFH63czhiLU2XkBPdypihcFcmGauw0ajPrkJWjjw/exec" allowfullscreen></iframe>
+  <iframe id="miIframe" src="https://script.google.com/macros/s/AKfycbz_3yg1y_BnqKjym7Dho0AIixLA1FiFH63czhiLU2XkBPdypihcFcmGauw0ajPrkJWjjw/exec" allowfullscreen></iframe>
+  <script>
+    window.addEventListener('message', function(event) {
+      // Puedes validar el origen del mensaje (event.origin) si es necesario
+      if (event.data && event.data.type === 'setHeight') {
+        document.getElementById('miIframe').style.height = event.data.height + 'px';
+      }
+    });
+  </script>
 </body>
 </html>
