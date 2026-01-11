@@ -20,7 +20,20 @@
   </style>
 </head>
 <body>
-  <!-- Reemplaza la URL a continuación por la URL de tu Web App desplegada -->
-  <iframe src="https://script.google.com/macros/s/AKfycbwsh0eXmi7JoSGXToYxt_fQWFy7R8KDMXnK0MCxrJVjZt-hA92e5xzwXdV2WGOGi1q1OQ/exec" allowfullscreen></iframe>
+  <iframe id="appFrame" src="" allowfullscreen></iframe>
+
+  <script>
+    window.onload = function() {
+      // Tu URL de Apps Script
+      var urlWebApp = "https://script.google.com/macros/s/AKfycbwsh0eXmi7JoSGXToYxt_fQWFy7R8KDMXnK0MCxrJVjZt-hA92e5xzwXdV2WGOGi1q1OQ/exec";
+      
+      // Obtenemos el iframe por su ID
+      var iframe = document.getElementById('appFrame');
+      
+      // Forzamos la carga de la URL original
+      iframe.src = urlWebApp;
+    };
+  </script>
 </body>
 </html>
+
