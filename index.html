@@ -1,39 +1,43 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Ventas HS</title>
-  <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-    }
-    iframe {
-      border: none;
-      width: 100%;
-      height: 100%;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Ventas HS</title>
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        iframe {
+            border: none;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
 </head>
+
 <body>
-  <iframe id="appFrame" src="" allowfullscreen></iframe>
+    <iframe id="appFrame" src="" allowfullscreen allow="camera; microphone; geolocation"></iframe>
 
-  <script>
-    window.onload = function() {
-      // Tu URL de Apps Script
-      var urlWebApp = "https://script.google.com/macros/s/AKfycbwsh0eXmi7JoSGXToYxt_fQWFy7R8KDMXnK0MCxrJVjZt-hA92e5xzwXdV2WGOGi1q1OQ/exec";
-      
-      // Obtenemos el iframe por su ID
-      var iframe = document.getElementById('appFrame');
-      
-      // Forzamos la carga de la URL original
-      iframe.src = urlWebApp;
-    };
-  </script>
+    <script>
+        window.onload = function () {
+            // Tu URL de Apps Script
+            var urlWebApp = "https://script.google.com/macros/s/AKfycbwsh0eXmi7JoSGXToYxt_fQWFy7R8KDMXnK0MCxrJVjZt-hA92e5xzwXdV2WGOGi1q1OQ/exec";
+
+            // Obtenemos el iframe por su ID
+            var iframe = document.getElementById('appFrame');
+
+            // Forzamos la carga de la URL original
+            iframe.src = urlWebApp;
+        };
+    </script>
 </body>
-</html>
 
+</html>
